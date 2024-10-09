@@ -1,0 +1,18 @@
+{
+    "type": "record",
+    "name": "Avro",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "age",
+        "type": "int"
+      },
+      {
+        "name": "isHuman",
+        "type": "boolean"
+      }
+    ]
+  }
