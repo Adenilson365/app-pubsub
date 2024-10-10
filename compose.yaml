@@ -1,4 +1,4 @@
-version: '3.8'
+
 services:
   api-generate:
     image: adenilsonkon/pub-sub-publisher
@@ -10,9 +10,6 @@ services:
 
   api-consumer:
     image: adenilsonkon/pub-sub-consumer
-    environment:
-      PROJECT_ID: "${PROJECT_ID}"
-      DLQ_TOPIC_ID: "${DLQ_TOPIC_ID}"
     ports:
       - "8002:8002"
 

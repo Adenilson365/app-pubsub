@@ -1,6 +1,5 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from google.cloud import pubsub_v1
-import random
 import json
 import os
 
@@ -14,8 +13,8 @@ TOPIC_ID = os.getenv("TOPIC_ID")
 topic_path = publisher.topic_path(PROJECT_ID, TOPIC_ID)
 
 @app.post("/publish")
-def publish_message(name: str, age: int):
-    is_human = random.random() > 0.1  # 10% de chance de ser False
+def publish_message(name: str, age: int, is_human: bool = Query(default=True, description="Set to False if not human")):
+    # Cria a mensagem com o valor de is_human definido pelo usuário ou com o valor padrão
     message = {"name": name, "age": age, "isHuman": is_human}
 
     # Publica a mensagem no tópico
